@@ -5,15 +5,20 @@
   3. 국적
   4. 자기소개
  */
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Register = () => {
+  console.log("Register 렌더링")
   const [input, setInput] = useState({
     name: "",
     birth: "",
     country: "",
     bio: "",
   })
+
+  const refObj = useRef(0)
+  // console.log(refObj)
+  // console.log(refObj.current)
 
   const onChange = (e) => {
     // console.log(e.target.name, e.target.value)
@@ -25,6 +30,11 @@ const Register = () => {
 
   return (
     <div>
+      <button onClick={() => {
+        refObj.current++;
+        console.log(refObj.current)
+      }}>ref + 1</button>
+
       <div>
         <input
           name={"name"}
