@@ -1,6 +1,16 @@
 const Button = ({ text, color, children }) => {
+  const onClockButton = () => {
+    console.log(text)
+  }
+
   return (
-    <button style={{ color: color }}>
+    <button
+      // onClick={() => {
+      //   console.log(text)
+      // }}
+      onClick={onClockButton}
+      // onMouseEnter={onClockButton}
+      style={{ color: color }}>
       {text} - {color}
       {children}
     </button>
