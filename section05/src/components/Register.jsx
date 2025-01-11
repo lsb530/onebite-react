@@ -15,29 +15,38 @@ const Register = () => {
     bio: "",
   })
 
-  const onChangeName = (e) => {setInput({ ...input, name: e.target.value })}
-  const onChangeBirth = (e) => {setInput({ ...input, birth: e.target.value })}
-  const onChangeCountry = (e) => {setInput({ ...input, country: e.target.value })}
-  const onChangeBio = (e) => {setInput({ ...input, bio: e.target.value })}
+  const onChange = (e) => {
+    // console.log(e.target.name, e.target.value)
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <div>
       <div>
         <input
+          name={"name"}
           value={input.name}
-          onChange={onChangeName}
+          onChange={onChange}
           placeholder={"이름"}
         />
       </div>
       <div>
         <input
+          name={"birth"}
           value={input.birth}
           type={"date"}
-          onChange={onChangeBirth}
+          onChange={onChange}
         />
       </div>
       <div>
-        <select value={input.country} onChange={onChangeCountry}>
+        <select
+          name={"country"}
+          value={input.country}
+          onChange={onChange}
+        >
           <option value={""}></option>
           <option value={"kr"}>한국</option>
           <option value={"us"}>미국</option>
@@ -47,8 +56,9 @@ const Register = () => {
 
       <div>
         <textarea
+          name={"bio"}
           value={input.bio}
-          onChange={onChangeBio}
+          onChange={onChange}
         />
       </div>
     </div>
