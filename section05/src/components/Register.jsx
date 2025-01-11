@@ -7,6 +7,8 @@
  */
 import { useRef, useState } from "react";
 
+// let count = 0 // 전역변수로 선연하면 다중 컴포넌트가 같은 변수를 공유하기 때문에 지양해야된다
+
 const Register = () => {
   const [input, setInput] = useState({
     name: "",
@@ -18,9 +20,13 @@ const Register = () => {
   const countRef = useRef(0)
   const inputRef = useRef()
 
+  let count = 0 // onChange에서 리렌더링이 일어나서 계속 0으로 리셋되어서 초기화가 일어남
+
   const onChange = (e) => {
     countRef.current++
     console.log(countRef.current)
+    // count++
+    // console.log(count)
     setInput({
       ...input,
       [e.target.name]: e.target.value
