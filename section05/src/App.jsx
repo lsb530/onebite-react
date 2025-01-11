@@ -1,24 +1,23 @@
 import './App.css'
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import Button from "./components/Button";
+import { useState } from "react";
 
 function App() {
-  const buttonProps = {
-    text: "메일",
-    color: "red",
-    a: 1, b: 2, c: 3
-  }
+  // const state = useState();
+  // console.log(state)
+  // 0: value(initial)
+  // 1: fn
+
+  // Re-rendering
+  const [state, setState] = useState(0)
+
   return (
     <>
-      {/*<Button text={"메일"} color={"red"}/>*/}
-      <Button {...buttonProps}/>
-      <Button text={"카페"}/>
-      <Button text={"블로그"}>
-        <div>자식요소</div>
-        <Header/>
-      </Button>
+      <h1>{state}</h1>
+      <button onClick={() => {
+        setState(state + 1)
+      }}>
+        +
+      </button>
     </>
   )
 }
