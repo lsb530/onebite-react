@@ -1,5 +1,6 @@
 const Button = ({ text, color, children }) => {
-  const onClockButton = () => {
+  const onClockButton = (e) => {
+    console.log(e) // SyntheticBaseEvent: 합성이벤트객체(크로스브라우징)
     console.log(text)
   }
 
