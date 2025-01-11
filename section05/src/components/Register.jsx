@@ -8,7 +8,6 @@
 import { useRef, useState } from "react";
 
 const Register = () => {
-  console.log("Register 렌더링")
   const [input, setInput] = useState({
     name: "",
     birth: "",
@@ -16,27 +15,30 @@ const Register = () => {
     bio: "",
   })
 
-  const refObj = useRef(0)
-  // console.log(refObj)
-  // console.log(refObj.current)
+  const countRef = useRef(0)
+  const inputRef = useRef()
 
   const onChange = (e) => {
-    // console.log(e.target.name, e.target.value)
+    countRef.current++
+    console.log(countRef.current)
     setInput({
       ...input,
       [e.target.name]: e.target.value
     })
   }
 
+  const onSubmit = () => {
+    if (input.name === '') {
+      // 이름을 입력하는 DOM 요소 포커스
+      inputRef.current.focus()
+    }
+  }
+
   return (
     <div>
-      <button onClick={() => {
-        refObj.current++;
-        console.log(refObj.current)
-      }}>ref + 1</button>
-
       <div>
         <input
+          ref={inputRef}
           name={"name"}
           value={input.name}
           onChange={onChange}
@@ -71,6 +73,8 @@ const Register = () => {
           onChange={onChange}
         />
       </div>
+
+      <button onClick={onSubmit}>제출</button>
     </div>
   )
 }
