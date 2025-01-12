@@ -35,6 +35,7 @@ const TodoItem = ({ id, isDone, content, date, onUpdate, onDelete }) => {
 }
 
 // 고차 컴포넌트 (HOC: Higher Order Component)
+/*
 export default memo(TodoItem, (prevProps, nextProps) => {
   // 반환값에 따라, Pros가 바뀌었는지 안바뀌었는지 판단
   // T -> Props 바뀌지 않음: 리렌더링 X
@@ -47,3 +48,7 @@ export default memo(TodoItem, (prevProps, nextProps) => {
 
   return true
 })
+*/
+
+export default memo(TodoItem)
+
