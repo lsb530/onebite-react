@@ -2,7 +2,7 @@ import './App.css'
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import List from "./components/List";
-import { createContext, useCallback, useReducer, useRef } from "react";
+import { createContext, useCallback, useMemo, useReducer, useRef } from "react";
 
 const mockData = [
   {
@@ -25,8 +25,8 @@ const mockData = [
   }
 ]
 
-export const TodoContext = createContext()
-// console.log(TodoContext)
+export const TodoStateContext = createContext()
+export const TodoDispatchContext = createContext()
 
 function reducer(state, action) {
   switch (action.type) {
@@ -75,15 +75,19 @@ function App() {
     })
   }, []);
 
+  const memoizedDispatch = useMemo(() => {
+    return {onCreate, onUpdate, onDelete}
+  }, []) // mount 이후 재생성되지 않기 위함
+
   return (
     <div className="App">
       <Header/>
-      <TodoContext.Provider value={{
-        todos, onCreate, onUpdate, onDelete
-      }}>
-        <Editor/>
-        <List/>
-      </TodoContext.Provider>
+      <TodoStateContext.Provider value={todos}>
+        <TodoDispatchContext.Provider value={memoizedDispatch}>
+          <Editor/>
+          <List/>
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
     </div>
   )
 }
