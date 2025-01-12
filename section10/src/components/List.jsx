@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import './List.css'
 import TodoItem from "./TodoItem";
 
@@ -20,7 +20,7 @@ const List = ({ todos, onUpdate, onDelete }) => {
 
   const filteredTodos = getFilteredData()
 
-  const getAnalyzedData = () => {
+  const { totalCount, doneCount, notDoneCount } = useMemo(() => {
     console.log('getAnalyzedData 호출!')
     const totalCount = todos.length
     const doneCount = todos.filter((todo) => todo.isDone).length
@@ -31,9 +31,8 @@ const List = ({ todos, onUpdate, onDelete }) => {
       doneCount,
       notDoneCount
     }
-  }
-
-  const { totalCount, doneCount, notDoneCount } = getAnalyzedData()
+  }, [todos]);
+  // 의존성 배열: deps
 
   return (
     <div className="List">
