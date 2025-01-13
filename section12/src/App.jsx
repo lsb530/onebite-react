@@ -31,7 +31,7 @@ function App() {
         {/*<div>Routes 내부는 Route만 쓸 수 있다</div>*/}
         <Route path="/" element={<Home/>}/>
         <Route path="/new" element={<New/>}/>
-        <Route path="/diary" element={<Diary/>}/>
+        <Route path="/diary/:id" element={<Diary/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </>
