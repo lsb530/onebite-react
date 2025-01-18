@@ -23,8 +23,8 @@ const mockData = [
   {
     id: 3,
     createdDate: new Date("2024-12-25").getTime(),
-    emotionId: 2,
-    content: '2번 일기 내용'
+    emotionId: 3,
+    content: '3번 일기 내용'
   }
 ]
 
@@ -55,12 +55,12 @@ function App() {
   const idRef = useRef(3)
 
   // 새로운 일기 추가
-  const onCreate = (createDate, emotionId, content) => {
+  const onCreate = (createdDate, emotionId, content) => {
     dispatch({
       type: 'CREATE',
       data: {
-        id: idRef.current++,
-        createDate,
+        id: ++idRef.current,
+        createdDate,
         emotionId,
         content
       }
@@ -68,12 +68,12 @@ function App() {
   }
 
   // 기존 일기 수정
-  const onUpdate = (id, createDate, emotionId, content) => {
+  const onUpdate = (id, createdDate, emotionId, content) => {
     dispatch({
       type: 'UPDATE',
       data: {
         id,
-        createDate,
+        createdDate,
         emotionId,
         content
       }
