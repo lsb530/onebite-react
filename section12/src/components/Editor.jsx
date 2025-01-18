@@ -16,7 +16,7 @@ const Editor = ({ initData, onSubmit }) => {
   const nav = useNavigate()
 
   useEffect(() => {
-    if(initData) {
+    if (initData) {
       setInput({
         ...initData,
         createdDate: new Date(Number(initData.createdDate))

@@ -77,7 +77,7 @@ function App() {
     }
 
     const parsedData = JSON.parse(storedData)
-    if(!Array.isArray(parsedData)) {
+    if (!Array.isArray(parsedData)) {
       setIsLoading(false)
       return
     }
@@ -135,7 +135,7 @@ function App() {
     })
   }
 
-  if(isLoading) {
+  if (isLoading) {
     return <div>데이터 로딩중입니다 ...</div>
   }
 
