@@ -1,8 +1,31 @@
-# React + Vite
+# 감정 일기장
+ Javascript, React, Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<b><i>home</i></b>
+<img src="./imgs/home.png">
+<b><i>new</i></b>
+<img src="./imgs/new.png">
+<b><i>edit</i></b>
+<img src="./imgs/edit.png">
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 적용된 기술들
+* useState
+* useRef
+* useNavigate
+* useParams
+* useEffect
+* useReducer
+* createContext
+* useContext
+* custom hook
+---
+* share(constant)
+* util(function)
+---
+* css
+* favicon
+* font
+* thumbnail
+* assets(emotion images)
+---
+* vercel
