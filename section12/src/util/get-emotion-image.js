@@ -4,6 +4,11 @@ import emotion3 from "./../assets/emotion3.png"
 import emotion4 from "./../assets/emotion4.png"
 import emotion5 from "./../assets/emotion5.png"
 
+/**
+ * argument 인수로 넘겨받은 emotionId에 알맞은 이미지를 반환하는 함수
+ * @param emotionId number
+ * @returns {{}|null}
+ */
 export function getEmotionImage(emotionId) {
   switch (emotionId) {
     case 1: return emotion1

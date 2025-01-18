@@ -33,7 +33,6 @@ const Home = () => {
   const month = pivotDate.getMonth() + 1
 
   const data = useContext(DiaryStateContext)
-  console.log('data', data)
   const monthlyData = getMonthlyData(pivotDate, data)
 
   const onIncreaseMonth = () => {
